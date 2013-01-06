@@ -22,21 +22,27 @@ public class CholeskyDecompositionTest {
 	@Test
 	public void testCholeskyDecomposition2() throws Exception {
 		double[] c = {
-				4, -2, 2,
-				-2, 2, 2,
-				2, 2, 14
+				1, 1, 1, 1, 1,
+				1, 2, 3, 4, 5,
+				1, 3, 6,10,15,
+				1, 4,10,20,35,
+				1, 5,15,35,70
 		};
-		double[] expected = {
-				2, 0, 0,
-				-1, 1, 0,
-				1, 3, 2,
+		double[] d = {
+				1, 0, 0, 0, 0,
+				1, 1, 0, 0, 0,
+				1, 2, 1, 0, 0,
+				1, 3, 3, 1, 0,
+				1, 4, 6, 4, 1
 		};
+		SquareMatrix expected = new SquareMatrix(d);
+		
 		SquareMatrix m = new SquareMatrix(c);
 		CholeskyDecomposition cholesky = new CholeskyDecomposition(
 			m
 		);
-		System.out.println(cholesky.getResult().toString());
-		assertTrue(new SquareMatrix(expected).eq(cholesky.getResult()));
+		
+		assertTrue(expected.eq(cholesky.getResult()));
 		
 	}
 
