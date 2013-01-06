@@ -11,7 +11,10 @@ public class CholeskyDecompositionTest {
 
 	@Test
 	public void testCholeskyDecomposition1() throws Exception {
-		Complex[] c = {new Complex(1,0), new Complex(0,0), new Complex(0,0), new Complex(1, 0)};
+		Complex[] c = {
+				new Complex(1,0), new Complex(0,0),
+				new Complex(0,0), new Complex(1,0)
+		};
 		SquareMatrix m = new SquareMatrix(c);
 		CholeskyDecomposition cholesky = new CholeskyDecomposition(
 			m
