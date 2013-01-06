@@ -51,12 +51,12 @@ public class Matrix {
 		}
 	}
 
-	public Complex get(int row, int column) {
-		return matrix[row][column];
+	public Complex get(int x, int y) {
+		return matrix[x][y];
 	}
 
-	public void set(int row, int column, Complex cell) {
-		matrix[row][column] = cell;
+	public void set(int x, int y, Complex cell) {
+		matrix[x][y] = cell;
 	}
 
 	public boolean eq(Matrix b) {
@@ -72,7 +72,7 @@ public class Matrix {
 				return false;
 			}
 			for (int j = 0; j < a.matrix[i].length; j++) {
-				if (a.matrix[i][j] != b.matrix[i][j])
+				if (!a.matrix[i][j].eq(b.matrix[i][j]))
 					return false;
 			}
 		}
