@@ -25,6 +25,7 @@ public class SquareMatrix extends Matrix {
 	
 	public SquareMatrix(SquareMatrix input) {
 		super((Matrix) input);
+		dim = input.dim;
 	}
 
 	public SquareMatrix(double[] c) throws InvalidArgumentException {
@@ -37,8 +38,8 @@ public class SquareMatrix extends Matrix {
 
 	public boolean isSymmetric(){
 		for(int i = 0; i < dim; i++){
-			for(int j = i+1; j < dim; j++){
-				if(get(i, j) != get(j, i)){
+			for(int j = 0; j < dim; j++){
+				if(!get(i, j).eq(get(j, i))){
 					return false;
 				}
 			}
@@ -47,8 +48,10 @@ public class SquareMatrix extends Matrix {
 	}
 	public boolean isHermitian(){
 		for(int i = 0; i < dim; i++){
-			for(int j = i+1; j < dim; j++){
-				if(get(i, j) != get(j, i).conj()){
+			for(int j = 0; j < dim; j++){
+				if(i == j)
+					continue;
+				if(!get(i, j).eq(get(j, i).conj())){
 					return false;
 				}
 			}
@@ -58,6 +61,14 @@ public class SquareMatrix extends Matrix {
 
 	public int dim() {
 		return dim;
+	}
+
+	public void blank() {
+		for(int i = 0; i < dim; i++){
+			for(int j = 0; j < dim; j++){
+				set(i, j, new Complex(0, 0));
+			}
+		}
 	}
 	
 
