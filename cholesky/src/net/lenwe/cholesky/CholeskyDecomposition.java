@@ -8,9 +8,10 @@ public class CholeskyDecomposition {
 	
 	public CholeskyDecomposition(SquareMatrix input) throws InvalidArgumentException{
 		this.input = input;
-		result = new SquareMatrix(input);
+		result = new SquareMatrix(this.input);
+		result.blank();
 		decompose();
-		input = null;
+		this.input = null;
 	}
 	public SquareMatrix getResult(){
 		return result;
@@ -30,12 +31,16 @@ public class CholeskyDecomposition {
 		Complex sum = new Complex(0, 0);
 		for(int k = 0; k < i; k++)
 			sum = sum.sum(Complex.prod(result.get(i, k), result.get(j, k).conj()) );
-		result.set(i, j, input.get(i, j).sub(sum).prod(new Complex(1, 0).div(result.get(j, j))));
+		sum = input.get(i, j).sub(sum);
+		Complex prod = new Complex(1, 0).div(result.get(j, j));
+		result.set(i, j, sum.prod(prod));
 	}
-	private void computeDiagonal(int i) {
+	private void computeDiagonal(int j) {
 		Complex sum = new Complex(0, 0);
-		for(int k = 0; k < i; k++)
-			sum = sum.sum(Complex.prod(result.get(i, k), result.get(i, k).conj()));
-		result.set(i, i, input.get(i, i).sub(sum).sqrt());
+		for(int k = 0; k < j; k++)
+			sum = sum.sum(Complex.prod(result.get(j, k), result.get(j, k).conj()));
+		result.set(j, j, input.get(j, j).sub(sum).sqrt());
 	}
 }
+
+
