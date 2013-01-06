@@ -1,15 +1,16 @@
-package net.lenwe.cholesky;
+package net.lenwe.choleskyTests;
 
-import static org.junit.Assert.*;
-
-import net.lenwe.cholesky.Matrix.InvalidArgumentException;
+import static org.junit.Assert.assertTrue;
+import net.lenwe.cholesky.CholeskyDecomposition;
+import net.lenwe.cholesky.Complex;
+import net.lenwe.cholesky.SquareMatrix;
 
 import org.junit.Test;
 
 public class CholeskyDecompositionTest {
 
 	@Test
-	public void testCholeskyDecomposition1() throws InvalidArgumentException {
+	public void testCholeskyDecomposition1() throws Exception {
 		Complex[] c = {new Complex(1,0), new Complex(0,0), new Complex(0,0), new Complex(1, 0)};
 		SquareMatrix m = new SquareMatrix(c);
 		CholeskyDecomposition cholesky = new CholeskyDecomposition(
@@ -19,7 +20,7 @@ public class CholeskyDecompositionTest {
 	}
 	
 	@Test
-	public void testCholeskyDecomposition2() throws InvalidArgumentException {
+	public void testCholeskyDecomposition2() throws Exception {
 		double[] c = {
 				4, -2, 2,
 				-2, 2, 2,

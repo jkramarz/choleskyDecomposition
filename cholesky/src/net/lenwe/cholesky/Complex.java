@@ -6,7 +6,7 @@ public class Complex {
 	private double im;
 	private double re;
 
-	Complex(double re, double im) {
+	public Complex(double re, double im) {
 		this.re = re;
 		this.im = im;
 	}

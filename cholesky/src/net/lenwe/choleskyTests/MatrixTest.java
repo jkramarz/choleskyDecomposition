@@ -1,6 +1,9 @@
-package net.lenwe.cholesky;
+package net.lenwe.choleskyTests;
 
 import static org.junit.Assert.*;
+
+import net.lenwe.cholesky.Complex;
+import net.lenwe.cholesky.Matrix;
 
 import org.junit.Test;
 

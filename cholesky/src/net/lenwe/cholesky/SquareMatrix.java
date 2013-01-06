@@ -2,7 +2,7 @@ package net.lenwe.cholesky;
 
 public class SquareMatrix extends Matrix {
 	int dim;
-	SquareMatrix(Complex[] num) throws InvalidArgumentException {
+	public SquareMatrix(Complex[] num) throws InvalidArgumentException {
 		fill(num);
 	}
 
@@ -35,7 +35,7 @@ public class SquareMatrix extends Matrix {
 		fill(cmp);
 	}
 
-	boolean isSymmetric(){
+	public boolean isSymmetric(){
 		for(int i = 0; i < dim; i++){
 			for(int j = i+1; j < dim; j++){
 				if(get(i, j) != get(j, i)){
@@ -45,7 +45,7 @@ public class SquareMatrix extends Matrix {
 		}
 		return true;
 	}
-	boolean isHermitian(){
+	public boolean isHermitian(){
 		for(int i = 0; i < dim; i++){
 			for(int j = i+1; j < dim; j++){
 				if(get(i, j) != get(j, i).conj()){

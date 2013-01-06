@@ -1,8 +1,8 @@
-package net.lenwe.cholesky;
+package net.lenwe.choleskyTests;
 
-import static org.junit.Assert.*;
-
-import net.lenwe.cholesky.Matrix.InvalidArgumentException;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import net.lenwe.cholesky.Complex;
 
 import org.junit.Test;
 
@@ -75,13 +75,13 @@ public class ComplexTest {
 	}
 
 	@Test
-	public void testDivComplex() throws InvalidArgumentException {
+	public void testDivComplex() throws Exception {
 		Complex c = new Complex(1, 2);
 		assertTrue(c.div(new Complex(3, -4)).eq(new Complex(-0.2, 0.4)));
 	}
 
 	@Test
-	public void testDivComplexComplex() throws InvalidArgumentException {
+	public void testDivComplexComplex() throws Exception {
 		assertTrue(Complex.div(new Complex(1, 2), new Complex(3, -4)).eq(new Complex(-0.2, 0.4)));
 	}
 
